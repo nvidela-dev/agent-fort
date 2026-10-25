@@ -8,11 +8,11 @@ A private, self-hosted PWA for watching agents think, use tools, and reply—fro
 
 [Get started](#quick-start) · [Phone & tablet](#phone--tablet) · [How it works](#how-it-works) · [Troubleshooting](#troubleshooting)
 
-[![Watch the actual Agent Fort app](docs/demo-poster.png)](docs/agent-fort-demo.mp4)
-
 </div>
 
-**[Watch the actual app recording](docs/agent-fort-demo.mp4)** — two real Hermes terminal tasks, live activity labels, and walking dwarves. A quiet wait near the end is shortened.
+https://github.com/user-attachments/assets/90c78d43-603c-4f0c-b350-09a245d37205
+
+*Actual app recording: two real Hermes terminal tasks, live activity labels, and walking dwarves. A quiet wait near the end is shortened. [Download the MP4](docs/agent-fort-demo.mp4).*
 
 Agent Fort turns each Hermes session into a dwarf on a horizontal lane. The map occupies almost the entire screen. Thin status bars, pixel graphics, and labels above working dwarves keep the important part visible: what your agents are doing right now.
 
