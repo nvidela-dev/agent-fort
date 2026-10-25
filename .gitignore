@@ -1,0 +1,16 @@
+.data/
+__pycache__/
+*.pyc
+.DS_Store
+
+.venv/
+
+work/
+
+# Locally supplied graphics; not part of the public distribution.
+public/dwarves.png
+public/geology.png
+.env
+.env.*
+!.env.example
+*.log
