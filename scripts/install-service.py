@@ -5,6 +5,7 @@ import plistlib
 import shutil
 import subprocess
 import sys
+import sysconfig
 
 if sys.platform != 'darwin':
     sys.exit('This installer is for macOS. On Linux, use your preferred user process manager.')
@@ -21,7 +22,10 @@ if agent.exists():
 environment={'PATH':os.environ['PATH'],'HERMES_BIN':os.environ.get('HERMES_BIN') or shutil.which('hermes') or 'hermes'}
 for name in ('HERMES_HOME','PORT'):
     if name in os.environ:environment[name]=os.environ[name]
-config={'Label':label,'ProgramArguments':[sys.executable,str(root/'server.py')],
+# launchd can refuse an executable symlink inside a protected Documents folder.
+# Launch the real interpreter and retain this virtualenv's installed packages.
+environment['PYTHONPATH']=sysconfig.get_paths()['purelib']
+config={'Label':label,'ProgramArguments':[str(pathlib.Path(sys.executable).resolve()),str(root/'server.py')],
         'WorkingDirectory':str(root),'RunAtLoad':True,'KeepAlive':True,'ThrottleInterval':10,
         'EnvironmentVariables':environment,'StandardOutPath':str(data/'server.log'),
         'StandardErrorPath':str(data/'error.log')}
