@@ -146,7 +146,9 @@ The idle timer starts when an observed live turn becomes idle. For previously id
 .venv/bin/python scripts/install-service.py
 ```
 
-This installs a per-user LaunchAgent named `local.agent-fort`, starts it now, and restarts it at login or after a crash. Logs are in `.data/server.log` and `.data/error.log`. It starts after login, not before the macOS login screen. Keep the host awake for remote access.
+This installs a per-user LaunchAgent named `local.agent-fort`, starts it now, and restarts it at login or after a crash. The installer copies the app and its WebSocket dependency into `~/Library/Application Support/Agent Fort/` so background startup does not depend on launching code from a protected Documents folder. The access key, run database and logs live in that runtime's `.data/` folder. An existing checkout key/database are imported on first installation; later installs preserve runtime data. It starts after login, not before the macOS login screen. Keep the host awake for remote access.
+
+After pulling new source or changing custom tiles, rerun the installer to update the installed runtime. For foreground development, continue using `.venv/bin/python server.py` from the checkout instead.
 
 ```sh
 # Stop the user service:
