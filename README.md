@@ -8,9 +8,11 @@ A private, self-hosted PWA for watching agents think, use tools, and reply—fro
 
 [Get started](#quick-start) · [Phone & tablet](#phone--tablet) · [How it works](#how-it-works) · [Troubleshooting](#troubleshooting)
 
-![Agent Fort illustration](docs/fortress.svg)
+[![Watch the actual Agent Fort app](docs/demo-poster.png)](docs/agent-fort-demo.mp4)
 
 </div>
+
+**[Watch the actual app recording](docs/agent-fort-demo.mp4)** — two real Hermes terminal tasks, live activity labels, and walking dwarves. A quiet wait near the end is shortened.
 
 Agent Fort turns each Hermes session into a dwarf on a horizontal lane. The map occupies almost the entire screen. Thin status bars, pixel graphics, and labels above working dwarves keep the important part visible: what your agents are doing right now.
 
@@ -61,7 +63,7 @@ Open **http://127.0.0.1:3000**. On the first run, the server generates a key at 
 cat .data/access-key
 ```
 
-No frontend build, Node installation, cloud account, or external database is required to run the app. The bundled original pixel graphics work immediately; custom graphics are optional.
+No frontend build, Node installation, cloud account, or external database is required to run the app. The supplied dwarf and geology tilesheets are included and used automatically. Original procedural graphics remain available as a fallback.
 
 ### Connect another Hermes home
 
@@ -134,7 +136,7 @@ The idle timer starts when an observed live turn becomes idle. For previously id
 
 - The HTTP server binds only to `127.0.0.1`.
 - API requests need an authenticated HttpOnly cookie. Mutations require a same-origin request.
-- `.data/`, virtual environments, credentials, logs, and custom graphics are Git-ignored.
+- `.data/`, virtual environments, credentials, and logs are Git-ignored.
 - The observer sends no prompts or session-control RPCs. Monitoring does not stop, resume, or alter existing Hermes sessions.
 - Activity projection forwards tool names and status, not reasoning text or tool arguments/results. Opening conversation history deliberately retrieves stored messages to your authenticated browser.
 - Private API/history responses are never service-worker cached. The app shell can open offline; private history is not available on a fresh offline launch.
@@ -160,9 +162,9 @@ launchctl bootout gui/$(id -u)/local.agent-fort
 
 On Linux, run the foreground command under your preferred process manager. Run it as the same user who owns the Hermes gateway socket; do not run it as root to work around socket permissions.
 
-## Optional custom tiles
+## Included tiles and custom graphics
 
-See [custom graphics](docs/custom-graphics.md). Original procedural graphics are included and covered by the code license. Third-party tilesheets are not distributed with this repository; install graphics you have permission to use locally. Agent Fort's current sampling layout supports a 16×16 character sheet and the demonstrated 32×32 geology reference layout.
+The character and geology PNGs used in the app are bundled in `public/`, so a clone or release download includes the same look. See [graphics attribution](public/ASSETS.md) and [custom graphics](docs/custom-graphics.md). The renderer samples 16×16 characters and 32×32 terrain regions with pixel smoothing disabled.
 
 ## Troubleshooting
 
@@ -199,4 +201,4 @@ Node 20+ is needed only for the JavaScript tests. See [CONTRIBUTING.md](CONTRIBU
 
 ## License
 
-[MIT](LICENSE) for Agent Fort code and original built-in artwork. Optional third-party graphics retain their own licenses. Agent Fort is an independent project and is not affiliated with Nous Research or Dwarf Fortress.
+[MIT](LICENSE) for Agent Fort code and original built-in artwork. The bundled third-party tilesheets are excluded from the MIT grant; see [asset attribution](public/ASSETS.md). Agent Fort is an independent project and is not affiliated with Nous Research or Dwarf Fortress.

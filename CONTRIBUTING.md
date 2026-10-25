@@ -11,4 +11,4 @@ Use a virtual environment, install `requirements.txt`, and run the checks in the
 
 Keep the interface compact and map-first. Show observed activity, label unknown state explicitly, and preserve horizontal travel. Do not infer live thinking from an old transcript or refresh an idle timer merely because the observer polled a session.
 
-Use fake gateway/session fixtures for tests. Avoid model calls, Telegram sends, or reads from your real Hermes home in automated tests. Never commit `.data/`, credentials, logs, private session screenshots, or custom third-party sheets. Include a reproducible test for behavioral bugs and clear validation notes in a pull request.
+Use fake gateway/session fixtures for tests. Avoid model calls, Telegram sends, or reads from your real Hermes home in automated tests. Never commit `.data/`, credentials, logs, private session screenshots, or additional third-party assets without attribution and reuse terms. Include a reproducible test for behavioral bugs and clear validation notes in a pull request.
